@@ -1,15 +1,17 @@
 package com.example.raiffeisen_backend.note;
 
-import jakarta.persistence.Entity;
-
+// import jakarta.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+// @Entity
 public class Note {
     private String title;
     private String content;
     private LocalDate createdAt;
     private LocalDate updateAt;
+
+    public Note() {
+    }
 
     public Note(String title, String content, LocalDate createdAt, LocalDate updateAt) {
         this.title = title;

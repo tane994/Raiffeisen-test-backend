@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NoteService {
@@ -22,4 +23,8 @@ public class NoteService {
         noteRepository.save(note);
     }
 
+    public void updateNote(Long id, String title, String content) {
+        Note currentNote = noteRepository.findById(id).orElseThrow(() -> new IllegalStateException("Student with id: " + id + " not present."));
+
+    }
 }

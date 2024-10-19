@@ -26,5 +26,10 @@ public class NoteController {
         noteService.saveNote(note);
     }
 
+    @PutMapping(path = "/update/{id}")
+    public void updateNote( @PathVariable("id") Long id, @RequestBody String title, @RequestBody String content) {
+        noteService.updateNote(id, title, content);
+    }
+
 
 }

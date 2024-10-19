@@ -1,9 +1,7 @@
 package com.example.raiffeisen_backend.note;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,11 @@ public class NoteController {
     @GetMapping
     public List<Note> getNotes() {
         return noteService.getNotes();
+    }
+
+    @PostMapping
+    public void saveNote(@RequestBody Note note) {
+        noteService.saveNote(note);
     }
 
 

@@ -17,4 +17,9 @@ public class NoteService {
     public List<Note> getNotes() {
         return noteRepository.findAll();
     }
+
+    public void saveNote(Note note) {
+        noteRepository.save(note);
+    }
+
 }

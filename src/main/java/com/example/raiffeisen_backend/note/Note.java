@@ -1,16 +1,26 @@
 package com.example.raiffeisen_backend.note;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "notes")
 public class Note {
-    private @Id
-    @GeneratedValue Long id;
+    @Id
+    @SequenceGenerator(
+            name="note_sequence",
+            sequenceName = "note_sequence",
+            allocationSize = 1
+
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "note_sequence"
+    )
+    private Long id;
+
     private String title;
     private String content;
     private LocalDate createdAt;
@@ -22,8 +32,12 @@ public class Note {
     public Note(String title, String content, LocalDate createdAt, LocalDate updateAt) {
         this.title = title;
         this.content = content;
-        this.createdAt = LocalDate.now();
-        this.updateAt = LocalDate.now();
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -61,7 +75,8 @@ public class Note {
     @Override
     public String toString() {
         return "Note{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", createdAt=" + createdAt +
                 ", updateAt=" + updateAt +

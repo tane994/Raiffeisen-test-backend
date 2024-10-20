@@ -30,10 +30,15 @@ public class NoteController {
 
     @PostMapping
     public ResponseEntity<String> saveNote(@RequestBody Note note) {
-        note.setCreatedAt(LocalDate.now());
-        note.setUpdateAt(LocalDate.now());
-        noteService.saveNote(note);
-        return new ResponseEntity<>("Note saved successfully", HttpStatus.CREATED);
+        try {
+            note.setCreatedAt(LocalDate.now());
+            note.setUpdatedAt(LocalDate.now());
+            noteService.saveNote(note);
+            return new ResponseEntity<>("Note saved successfully", HttpStatus.CREATED);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Error saving note: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping(path = "{id}")

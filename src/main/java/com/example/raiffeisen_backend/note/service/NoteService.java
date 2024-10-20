@@ -37,7 +37,7 @@ public class NoteService {
             note.setContent(content);
         }
 
-        note.setUpdateAt(LocalDate.now());
+        note.setUpdatedAt(LocalDate.now());
         noteRepository.save(note);
     }
 

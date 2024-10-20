@@ -24,7 +24,7 @@ public class Note {
     private String title;
     private String content;
     private LocalDate createdAt;
-    private LocalDate updateAt;
+    private LocalDate updatedAt;
 
     public Note() {
     }
@@ -33,7 +33,7 @@ public class Note {
         this.title = title;
         this.content = content;
         this.createdAt = LocalDate.now();
-        this.updateAt = LocalDate.now();
+        this.updatedAt = LocalDate.now();
     }
 
     public Long getId() {
@@ -64,12 +64,12 @@ public class Note {
         this.createdAt = createdAt;
     }
 
-    public LocalDate getUpdateAt() {
-        return updateAt;
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDate updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(LocalDate updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
@@ -79,7 +79,7 @@ public class Note {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", createdAt=" + createdAt +
-                ", updateAt=" + updateAt +
+                ", updateAt=" + updatedAt +
                 '}';
     }
 

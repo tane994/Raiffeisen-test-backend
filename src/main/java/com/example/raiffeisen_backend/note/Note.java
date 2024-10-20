@@ -29,11 +29,11 @@ public class Note {
     public Note() {
     }
 
-    public Note(String title, String content, LocalDate createdAt, LocalDate updateAt) {
+    public Note(String title, String content) {
         this.title = title;
         this.content = content;
-        this.createdAt = createdAt;
-        this.updateAt = updateAt;
+        this.createdAt = LocalDate.now();
+        this.updateAt = LocalDate.now();
     }
 
     public Long getId() {
@@ -82,4 +82,5 @@ public class Note {
                 ", updateAt=" + updateAt +
                 '}';
     }
+
 }

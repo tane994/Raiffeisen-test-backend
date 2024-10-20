@@ -3,8 +3,8 @@ package com.example.raiffeisen_backend.note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class NoteService {
@@ -24,8 +24,19 @@ public class NoteService {
     }
 
     public void updateNote(Long id, String title, String content) {
-        Note currentNote = noteRepository.findById(id).orElseThrow(() -> new IllegalStateException("Student with id: " + id + " not present."));
+        Note note = noteRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Note with id " + id + " does not exist"));
 
+        if (title != null && !title.isEmpty()) {
+            note.setTitle(title);
+        }
+
+        if (content != null && !content.isEmpty()) {
+            note.setContent(content);
+        }
+
+        note.setUpdateAt(LocalDate.now());
+        noteRepository.save(note);
     }
 
     public void deleteNote(Long id) {

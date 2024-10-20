@@ -1,6 +1,8 @@
 package com.example.raiffeisen_backend.note;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,17 +24,22 @@ public class NoteController {
     }
 
     @PostMapping
-    public void saveNote(@RequestBody Note note) {
+    public ResponseEntity<String> saveNote(@RequestBody Note note) {
         noteService.saveNote(note);
+        return new ResponseEntity<>("Note saved successfully", HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/update/{id}")
-    public void updateNote( @PathVariable("id") Long id, @RequestBody String title, @RequestBody String content) {
-        noteService.updateNote(id, title, content);
+    @PutMapping(path = "{id}")
+    public ResponseEntity<String> updateNote(
+            @PathVariable("id") Long id,
+            @RequestBody NoteUpdateDTO noteUpdateDTO) {
+        noteService.updateNote(id, noteUpdateDTO.getTitle(), noteUpdateDTO.getContent());
+        return new ResponseEntity<>("Note updated successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping(path = "/delete/{id}")
-    public void deleteNote(@PathVariable("id") Long id) {
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<String> deleteNote(@PathVariable("id") Long id) {
         noteService.deleteNote(id);
+        return new ResponseEntity<>("Note deleted successfully", HttpStatus.OK);
     }
 }

@@ -1,5 +1,7 @@
-package com.example.raiffeisen_backend.note;
+package com.example.raiffeisen_backend.note.config;
 
+import com.example.raiffeisen_backend.note.model.Note;
+import com.example.raiffeisen_backend.note.repository.NoteRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.example.raiffeisen_backend.note;
+package com.example.raiffeisen_backend.note.model;
 
 import jakarta.persistence.*;
 

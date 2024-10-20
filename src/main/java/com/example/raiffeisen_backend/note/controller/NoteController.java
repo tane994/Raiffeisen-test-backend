@@ -1,5 +1,8 @@
-package com.example.raiffeisen_backend.note;
+package com.example.raiffeisen_backend.note.controller;
 
+import com.example.raiffeisen_backend.note.model.Note;
+import com.example.raiffeisen_backend.note.service.NoteService;
+import com.example.raiffeisen_backend.note.dto.NoteUpdateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

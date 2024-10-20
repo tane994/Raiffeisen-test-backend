@@ -1,5 +1,7 @@
-package com.example.raiffeisen_backend.note;
+package com.example.raiffeisen_backend.note.service;
 
+import com.example.raiffeisen_backend.note.model.Note;
+import com.example.raiffeisen_backend.note.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

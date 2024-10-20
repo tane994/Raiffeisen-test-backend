@@ -27,4 +27,8 @@ public class NoteService {
         Note currentNote = noteRepository.findById(id).orElseThrow(() -> new IllegalStateException("Student with id: " + id + " not present."));
 
     }
+
+    public void deleteNote(Long id) {
+        noteRepository.deleteById(id);
+    }
 }

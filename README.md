@@ -48,22 +48,8 @@ To use the Raiffeisen Note App Backend, follow these steps:
 
 The Raiffeisen Note App follows a client-server architecture. Here's an overview of the system:
 
-```
-[Client Side]
-    |
-    | (HTTP Requests)
-    v
-[API Layer]
-    |
-    v
-[Service Layer]
-    |
-    v
-[Data Access Layer]
-    |
-    v
-[Database] 
-```
+![Architecture - Raiffeisen Note App](https://github.com/user-attachments/assets/2f116ef5-cb8d-4416-8348-c3b9c8e0de1a)
+
 
 - **Client Side**: The frontend built with React (see frontend repository).
 - **API Layer**: Implemented using Spring Boot, handling HTTP requests (GET, POST, PUT, DELETE).
